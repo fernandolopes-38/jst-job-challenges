@@ -1,4 +1,5 @@
 import React from 'react'
+import './Select.css'
 import CSS from 'csstype'
 
 interface User {
@@ -18,9 +19,9 @@ type Props = {
 const Select:React.FC<Props> = ({label, users, onSelect}) => {
   return (
     <div style={selectContainer}>
-      <p>{label}</p>
+      <label htmlFor='usersSelect'>{label}</label>
       <div className='select'>
-        <select onChange={onSelect}>
+        <select id='usersSelect' onChange={onSelect}>
             <option value='0'>Selecione o usuário</option>
             {users.map((user: User) => 
             <option key={user.id} value={user.id} >{user.id} - {user.first_name}</option>
