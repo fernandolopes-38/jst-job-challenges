@@ -10,16 +10,17 @@ interface User {
 }
 
 type Props = {
+  disabled: boolean;
   label: string;
   users: User[];
   onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const TextInput:React.FC<Props> = ({label, users, onSelect}) => {
+const TextInput:React.FC<Props> = ({disabled, label, users, onSelect}) => {
   return (
     <div style={selectContainer}>
       <label htmlFor='textInput'>{label}</label>      
-      <input id='textInput' list='userList' type='text' className='input' onChange={onSelect} placeholder='Digite o nome do usuário' />
+      <input disabled={disabled} id='textInput' list='userList' type='text' className='input' onChange={onSelect} placeholder='Digite o nome do usuário' />
       <datalist id='userList'>
         {users.map((user: User) => 
           <option key={user.id} value={user.first_name} />
