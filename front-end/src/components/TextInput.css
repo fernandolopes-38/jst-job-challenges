@@ -1,0 +1,35 @@
+:root {
+  --input-border: #8b8a8b;
+  --input-focus-h: 245;
+  --input-focus-s: 100%;
+  --input-focus-l: 42%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.input {
+  display: flex;
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  min-width: 30ch;
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+}
+.input:focus {
+  border-color: hsl(
+    var(--input-focus-h),
+    var(--input-focus-s),
+    var(--input-focus-l)
+  );
+}
+.input[disabled] {
+  --input-border: #ccc;
+
+  background-color: #eee;
+  cursor: not-allowed;
+}

@@ -5,6 +5,8 @@ import CSS from 'csstype'
 import Card from './components/Card';
 import Select from './components/Select';
 import UserDetails from './components/UserDetails';
+import TextInput from './components/TextInput';
+import TextDropInput from './components/TextDropInput';
 
 interface User {
   id: number;
@@ -36,6 +38,17 @@ const App:React.FC = () => {
     let index = Number(e.target.value)-1;
     setUserDetails(users[index]);
     
+    navigate();
+  }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    const userFound = users.find(user => user.first_name.toLocaleLowerCase() === e.target.value.toLocaleLowerCase());
+    if (userFound) {
+      setUserDetails(userFound);
+      navigate();
+    }
+  };
+  const navigate = () => {
     setFade(fadeOut)
     setTimeout(() => {
       setIsUserDetail(true);
@@ -55,7 +68,9 @@ const App:React.FC = () => {
       {!isUserDetail ? (
         <Card>
           <h1>Bem-vindo a busca de usuários</h1>
-          <Select label={'Usuários'} users={users} onSelect={handleSelectChange} />
+          {/* <Select label={'Usuários'} users={users} onSelect={handleSelectChange} /> */}
+          <TextInput label={'Usuários'} users={users} onSelect={handleInputChange} />
+          {/* <TextDropInput label={'Usuários'} users={users} /> */}
         </Card>
       ) : (
         <Card>

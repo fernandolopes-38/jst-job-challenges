@@ -22,10 +22,10 @@ const Select:React.FC<Props> = ({label, users, onSelect}) => {
       <label htmlFor='usersSelect'>{label}</label>
       <div className='select'>
         <select id='usersSelect' onChange={onSelect}>
-            <option value='0'>Selecione o usuário</option>
-            {users.map((user: User) => 
+          <option value='0'>Selecione o usuário</option>
+          {users.map((user: User) => 
             <option key={user.id} value={user.id} >{user.id} - {user.first_name}</option>
-            )}
+          )}
         </select>
       </div>
     </div>
@@ -33,9 +33,9 @@ const Select:React.FC<Props> = ({label, users, onSelect}) => {
 }
 
 const selectContainer:CSS.Properties = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 }
 
 export default Select;

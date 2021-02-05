@@ -1,0 +1,73 @@
+:root {
+  --input-border: #8b8a8b;
+  --input-arrow: #777;
+  --input-focus-h: 245;
+  --input-focus-s: 100%;
+  --input-focus-l: 42%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ul {
+  position: absolute;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  min-width: 30ch;
+  background-color: #fff;
+  border: 1px solid #777;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 1;
+  height: auto;
+  max-height: 0;
+  transition: max-height 2s, opacity 4s;
+  opacity: 1;
+  visibility: hidden;
+}
+ul li {
+  padding: 5px;
+}
+ul li:hover {
+  background: #8b8a8b;
+  cursor: pointer;
+}
+.input {
+  display: flex;
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  min-width: 30ch;
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+}
+.arrow-down  {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--input-arrow);
+  cursor: pointer;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+.input:focus {
+  border-color: hsl(
+    var(--input-focus-h),
+    var(--input-focus-s),
+    var(--input-focus-l)
+  );
+}
+.input[disabled] {
+  --input-border: #ccc;
+
+  background-color: #eee;
+  cursor: not-allowed;
+}
